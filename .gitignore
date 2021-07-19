@@ -16,3 +16,7 @@
 
 # Do not send node_modules folder
 node_modules
+
+# Ignore fontawesome files except the file used
+fontawesome-free-5.15.3
+!fontawesome-free-5.15.3/css/all.min.css

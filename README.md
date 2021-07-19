@@ -13,7 +13,7 @@ Your users should be able to:
 
 ## Live Demo
 
-- Live Demo: [Landing Page](https://www.frontendmentor.io)
+- Live Demo: [Landing Page](https://cranky-minsky-4cfef1.netlify.app/)
 
 ## Building your project
 
