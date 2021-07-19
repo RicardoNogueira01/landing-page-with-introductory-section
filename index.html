@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
+		<link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet" />
+		<link rel="stylesheet" href="./node_modules/@fortawesome/fontawesome-free/css/all.min.css" />
+		<link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png" />
+		<link rel="stylesheet" href="./reset.css" />
+		<title>Frontend Mentor | Huddle landing page with single introductory section</title>
+
+		<style>
+			:root {
+				--ff-heading: 'Poppins', sans-serif;
+				--ff-body: 'Open Sans', sans-serif;
+
+				/* font sizes */
+				--fs-200: 0.75rem;
+				--fs-300: 1rem;
+				--fs-400: 1.25rem;
+				--fs-500: 1.375rem;
+				--fs-600: 1.75rem;
+				--fs-900: 3.125rem;
+
+				/* font-weight */
+				--fw-400: 400;
+
+				/* colors */
+				--clr-neutral-100: #fff;
+
+				--clr-primary-100: #674baf;
+				--clr-primary-200: #e882e8;
+			}
+
+			@media (min-width: 1440px) {
+				:root {
+					--fs-500: 1.75rem;
+					--fs-600: 2.75rem;
+					--fs-900: 4.25rem;
+				}
+			}
+
+			body {
+				background-image: url('images/bg-mobile.svg');
+				font-family: var(--ff-body);
+				font-weight: 200;
+				line-height: 1.5;
+				padding: 1.5rem 3rem;
+				background-size: cover;
+				background-repeat: no-repeat;
+				background-color: hsl(257, 40%, 49%);
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				flex-direction: column;
+			}
+
+			@media screen and (min-width: 1440px) {
+				body {
+					background-image: url('images/bg-desktop.svg');
+					background-size: contain;
+				}
+			}
+
+			/* UTILITIES */
+			.flow-content > * + * {
+				margin-top: var(--flow-spacer, 1em);
+			}
+
+			.clr-neutral-100 {
+				color: var(--clr-neutral-100);
+			}
+
+			.clr-primary-300 {
+				color: var(--clr-primary-300);
+			}
+
+			.clr-primary-400 {
+				color: var(--clr-primary-400);
+			}
+
+			.container {
+				display: flex;
+				flex-direction: column;
+				height: 100%;
+				align-items: center;
+			}
+
+			@media screen and (min-width: 1440px) {
+				.container {
+					flex-direction: row;
+				}
+
+				.container > :first-child {
+					flex: 0.6;
+				}
+
+				.container > :nth-child(2) {
+					flex: 0.4;
+				}
+			}
+
+			.container--small {
+				max-width: 35rem;
+			}
+
+			.d-flex {
+				display: flex;
+			}
+
+			.justify-content-center {
+				justify-content: center;
+			}
+
+			.justify-content-end {
+				justify-content: flex-end;
+			}
+
+			.text-align-center {
+				text-align: center;
+			}
+
+			.mt-2 {
+				margin-block-start: 2rem;
+			}
+
+			.mt-4 {
+				margin-block-start: 4rem;
+			}
+
+			.mb-3 {
+				margin-block-end: 3rem;
+			}
+
+			.mr-4 {
+				margin-inline-end: 4rem;
+			}
+
+			@media screen and (min-width: 1440px) {
+				.mr-lg-4 {
+					margin-inline-end: 4rem;
+				}
+			}
+
+			/* GENERAL */
+			article {
+				padding: 2.5rem 0;
+			}
+
+			@media (min-width: 1440px) {
+				article {
+					padding: 2rem 0;
+				}
+			}
+
+			h1 {
+				font-size: var(--fs-600);
+				font-family: var(--ff-heading);
+			}
+
+			.img-wrapper {
+				max-width: 560px;
+			}
+
+			@media (min-width: 1440px) {
+				.img-wrapper {
+					max-width: 100%;
+				}
+			}
+
+			footer {
+				padding-block-start: 2rem;
+			}
+
+			/* COMPONENTS */
+
+			.attribution {
+				font-size: 11px;
+				text-align: center;
+			}
+			.attribution a {
+				color: var(--clr-neutral-100);
+			}
+
+			.cta {
+				margin-block-start: 2rem;
+				text-align: center;
+			}
+
+			@media (min-width: 1440px) {
+				.cta {
+					margin-block-start: 0;
+					text-align: left;
+				}
+			}
+			.cta p {
+				max-width: 50ch;
+				font-size: var(--fs-400);
+			}
+
+			.cta a {
+				background-color: var(--clr-neutral-100);
+				border-radius: 100vw;
+				box-shadow: 0px 4px 13px 0px #2e2e2e;
+				color: var(--clr-primary-100);
+				display: inline-block;
+				font-size: 1.3rem;
+				padding: 1rem 6rem;
+				text-decoration: none;
+			}
+
+			.cta a:hover {
+				background-color: var(--clr-primary-200);
+				color: inherit;
+			}
+
+			.socials {
+				color: var(--clr-neutral-100);
+				font-size: var(--fs-400);
+				font-size: 1rem;
+			}
+
+			.socials > * {
+				border: 1px solid var(--clr-neutral-100);
+				border-radius: 100vw;
+				padding: 0.5rem;
+			}
+
+			.socials > * + * {
+				margin-inline-start: 0.5rem;
+			}
+
+			.socials :first-child {
+				padding: 0.5rem 0.7rem;
+			}
+
+			@media (min-width: 1440px) {
+				.socials {
+					position: absolute;
+					right: 3rem;
+					bottom: 3rem;
+				}
+
+				.socials > * {
+					padding: 1rem;
+				}
+
+				.socials > * + * {
+					margin-inline-start: 1rem;
+				}
+
+				.socials :first-child {
+					padding: 1rem 1.2rem;
+				}
+			}
+
+			.hover-effect {
+				transition: 0.3s ease all;
+			}
+
+			.hover-effect:hover {
+				background-color: var(--clr-primary-200);
+				color: inherit;
+				cursor: pointer;
+			}
+		</style>
+	</head>
+	<body>
+		<main>
+			<div class="container">
+				<div class="[ img-wrapper ] [ d-flex justify-content-end mr-lg-4 ]">
+					<img src="images/illustration-mockups.svg" />
+				</div>
+				<div class="clr-neutral-100 flow-content cta mb-3">
+					<h1>
+						Build The Community <br />
+						Your Fans Will Love
+					</h1>
+					<p>
+						Huddle re-imagines the way we build communities. You have a voice, but so does your audience. Create
+						connections with your users as you engage in genuine discussion.
+					</p>
+					<div class="mt-2">
+						<a href="#" class="[ hover-effect ]">Register</a>
+					</div>
+				</div>
+				<div class="socials">
+					<i class="[ fab fa-facebook-f ] [ hover-effect ]"></i>
+					<i class="[ fab fa-twitter ] [ hover-effect ]"></i>
+					<i class="[ fab fa-instagram ] [ hover-effect ]"></i>
+				</div>
+			</div>
+		</main>
+
+		<footer>
+			<p class="attribution">
+				Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. Coded by
+				<a href="#">Ricardo Nogueira</a>.
+			</p>
+		</footer>
+	</body>
+</html>
